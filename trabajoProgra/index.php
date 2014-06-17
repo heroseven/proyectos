@@ -92,8 +92,10 @@ mysql_close($conn);
             		 $.post('dias.php',{dia:date}, function(respuesta){
                 		
 
-                		alert(respuesta);
-                		console.log(respuesta);
+                		lista= JSON.parse(respuesta);
+							for(var i in lista){
+							console.log(lista[i]);
+						}
 
 				    	}).fail(function(){
 				        alert('error');
