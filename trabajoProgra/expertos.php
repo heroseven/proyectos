@@ -1,7 +1,6 @@
 
 
 <?php
-include("Experto.php");
 $dbhost = 'localhost:3306';
 $dbuser = 'root';
 $dbpass = '';
@@ -71,7 +70,7 @@ mysql_close($conn);
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Oficina en la nube</a>
+          <a class="navbar-brand" href="http://localhost/proyectos/trabajoProgra/expertos.php">Oficina en la nube</a>
         </div>
         <div class="navbar-collapse collapse">
           <form class="navbar-form navbar-right" role="form">

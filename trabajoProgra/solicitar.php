@@ -62,22 +62,24 @@ mysql_close($conn);
 		}
 		#contenedor{
 			margin:0 auto;
-			width:800px;
+			width:720px;
 		
 		}
 		#box_intervalos{
 			width:350px;
 			height: 300px;
-			background-color: #ddd;
+			background-color: #eee;
+      border:1px solid #ddd;
 			display:inline;
-			float:left;
+			float:right;
+      padding: 10px;
 		}
 		#datepicker{
 			display:inline;
 			float:left;
 			margin-right:5px;
 		}
-		
+		.ui-datepicker { font-size:1.5em; }
 	</style>
   </head>
 
@@ -92,7 +94,7 @@ mysql_close($conn);
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Oficina en la nube</a>
+          <a class="navbar-brand" href="http://localhost/proyectos/trabajoProgra/expertos.php">Oficina en la nube</a>
         </div>
         <div class="navbar-collapse collapse">
           <form class="navbar-form navbar-right" role="form">
@@ -128,7 +130,10 @@ mysql_close($conn);
      <div id="contenedor">
 		<div id="datepicker"></div>
 		<div id="box_intervalos">
-			<form id="formulario" action='' method='post'></form>
+
+			<form id="formulario" action='' method='post'>
+        <h5>No hay días seleccionados, porfavor seleccione un día disponible.</h5>
+      </form>
 		</div>
 
 
@@ -140,7 +145,7 @@ mysql_close($conn);
       <hr>
 
       <footer>
-        <p>&copy; Company 2014</p>
+        <p>&copy; Oficina en la nube 2014</p>
       </footer>
     </div> <!-- /container -->
 
@@ -159,6 +164,10 @@ mysql_close($conn);
 			
 		var inicioFormato=$.datepicker.parseDate('yy-mm-dd', "<?php echo $inicio ?>");
 		var finFormato=$.datepicker.parseDate('yy-mm-dd', "<?php echo $fin ?>");
+
+
+
+
 			$("#datepicker").datepicker({
 
 				dateFormat: "yy-mm-dd",
@@ -167,8 +176,12 @@ mysql_close($conn);
 
 				},onSelect: function(date){
 				
-
-
+                 
+                 var day1 = $("#datepicker").datepicker('getDate').getDate();                 
+            var month1 = $("#datepicker").datepicker('getDate').getMonth() + 1;             
+            var year1 = $("#datepicker").datepicker('getDate').getFullYear();
+            var diaFormato = year1 + "-" + month1 + "-" + day1;
+                 
             		 $.post('dias.php',{dia:date, expertoid:<?php echo $experto ?>}, function(respuesta){
                 		
 
@@ -176,19 +189,19 @@ mysql_close($conn);
                 		
                 	if(lista =="noexiste"){
                 			$('#formulario').html("<h2>Formulario</h2>");
-                			$('#formulario').append("No hay horarios disponibles.");
-                			
+                			$('#formulario').append("No hay horarios disponibles para el día "+diaFormato);
+                  
 
 
                 		}else{
                 		$('#formulario').html("<h2>Formulario</h2>");
                 			
                 		for(var i in lista){
-                		$('#formulario').append("<br/><input type='checkbox' name='"
+                		$('#formulario').append("<input type='checkbox' name='"
 								+lista[i]+ "'>"+lista[i]+"</br>");
                 		console.log(lista[i]);
                 		}
-						$('#formulario').append("<input type='submit' value='Enviar'>");
+						$('#formulario').append("</br><input type='submit' value='Enviar'>");
 
 					}
 				    	}).fail(function(){
