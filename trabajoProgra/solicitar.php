@@ -22,7 +22,6 @@ while($row = mysql_fetch_array($retval, MYSQL_ASSOC))
     $inicio= $row['a'];
      $fin = $row['b'];
 } 
-echo "Fetched data successfully\n";
 mysql_close($conn);
 
 
@@ -34,7 +33,7 @@ mysql_close($conn);
 <head>
 
 	<title>jQuery UI Datepicker: Style (or Highlight) Specific Dates</title>
-	<link href="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/themes/ui-darkness/jquery-ui.css" rel="stylesheet">
+	<link href="bower_components/blitzer/jquery-ui-1.10.4.custom.css" rel="stylesheet">
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
 	<style>
@@ -98,19 +97,28 @@ mysql_close($conn);
 				
 
 
-            		 $.post('dias.php',{dia:date}, function(respuesta){
+            		 $.post('dias.php',{dia:date, expertoid:<?php echo $experto ?>}, function(respuesta){
                 		
 
                 		lista= JSON.parse(respuesta);
-                		console.log(lista);
-                		$('#formulario').html("<h2>Formulario</h2>");
                 		
+                	if(lista =="noexiste"){
+                			$('#formulario').html("<h2>Formulario</h2>");
+                			$('#formulario').append("No hay horarios disponibles.");
+                			
+
+
+                		}else{
+                		$('#formulario').html("<h2>Formulario</h2>");
+                			
                 		for(var i in lista){
                 		$('#formulario').append("<br/><input type='checkbox' name='"
 								+lista[i]+ "'>"+lista[i]+"</br>");
                 		console.log(lista[i]);
                 		}
 						$('#formulario').append("<input type='submit' value='Enviar'>");
+
+					}
 				    	}).fail(function(){
 				        alert('error');
 

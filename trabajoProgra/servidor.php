@@ -19,11 +19,15 @@ if(! $retval )
 {
   die('Could not get data: ' . mysql_error());
 }
+if(mysql_num_rows($retval)){
 while($row = mysql_fetch_array($retval, MYSQL_ASSOC))
-{
-    echo "EMP ID :{$row['fecha']}  <br> ";
-} 
-echo "Fetched data successfully\n";
+{	
+
+		echo "EMP ID :{$row['fecha']}  <br> ";
+	
+} } else{
+		echo "no hay nada";
+}
 mysql_close($conn);
 
 
