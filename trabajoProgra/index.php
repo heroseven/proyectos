@@ -64,7 +64,16 @@ mysql_close($conn);
 <body>
 	<div id="contenedor">
 		<div id="datepicker"></div>
-		<div id="box_intervalos"></div>
+		<div id="box_intervalos">
+			<form id="formulario" action='' method='post'></form>
+		</div>
+
+
+
+
+
+</form>
+
 	</div>
 	<script>
 		/*
@@ -93,10 +102,15 @@ mysql_close($conn);
                 		
 
                 		lista= JSON.parse(respuesta);
-							for(var i in lista){
-							console.log(lista[i]);
-						}
-
+                		console.log(lista);
+                		$('#formulario').html("<h2>Formulario</h2>");
+                		
+                		for(var i in lista){
+                		$('#formulario').append("<br/><input type='checkbox' name='"
+								+lista[i]+ "'>"+lista[i]+"</br>");
+                		console.log(lista[i]);
+                		}
+						$('#formulario').append("<input type='submit' value='Enviar'>");
 				    	}).fail(function(){
 				        alert('error');
 
