@@ -3,3 +3,52 @@ body {
   padding-top: 50px;
   padding-bottom: 20px;
 }
+
+.jumbotron{
+			background-image: url('bower_components/img/fondo.jpg');
+			background-size: auto 100%;
+padding: 7em;
+
+}
+
+.jumbotron .container{
+	margin:0 auto;
+}
+#concepto{
+	color:black;
+	width:450px;
+margin-left: 31em;
+}
+
+.btn-success{
+	background-color: #cc0000;
+	border-color: #333;
+}
+.btn-success:hover{
+	background-color: #cc0000;
+	border-color: #333;
+}
+.btn-primary {
+	background-color: #333;
+	border-color: #999;
+
+}
+.btn-primary:hover{
+	background-color: #333;
+	border-color: #999;
+}
+		.heroHeading{
+
+			background: #cc0000;
+color: white!important;
+font: normal 2.25rem 'PT Serif Caption', serif;
+text-shadow: 0 1px 0 #477b20;
+text-align: center;
+margin: 0;
+padding: .5rem .875rem 0;
+line-height: 1;
+display: inline-block;
+font-size: 4.5rem;
+box-sizing: border-box;
+margin-left: 6em;
+		}

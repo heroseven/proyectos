@@ -46,7 +46,7 @@ mysql_close($conn);
 
     <!-- Bootstrap core CSS -->
     <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-
+    <link href='http://fonts.googleapis.com/css?family=PT+Serif+Caption' rel='stylesheet' type='text/css'>
     <!-- Custom styles for this template -->
     <link href="jumbotron.css" rel="stylesheet">
 
@@ -79,9 +79,9 @@ mysql_close($conn);
               <input type="text" placeholder="Email" class="form-control">
             </div>
             <div class="form-group">
-              <input type="password" placeholder="Password" class="form-control">
+              <input type="password" placeholder="Contraseña" class="form-control">
             </div>
-            <button type="submit" class="btn btn-success">Sign in</button>
+            <button type="submit" class="btn btn-success">Entrar</button>
           </form>
         </div><!--/.navbar-collapse -->
       </div>
@@ -91,9 +91,13 @@ mysql_close($conn);
 
     <div class="jumbotron">
       <div class="container">
-        <h1>Oficina en la nube</h1>
-        <p>Sistema para que las empresas puedan ofrecer sus servicios de asesoría usando videochat.</p>
-        <p><a class="btn btn-primary btn-lg" role="button">Learn more &raquo;</a></p>
+        <h1 class="heroHeading">Oficina en la nube</h1>
+        
+        <div id="concepto"><h3>Plataforma para que las empresas puedan ofrecer sus servicios de asesoría usando videochat.</h3>
+          <p><a class="btn btn-primary btn-lg" role="button">Aprender más &raquo;</a></p>
+
+        </div>
+        
       </div>
     </div>
 
@@ -120,7 +124,7 @@ mysql_close($conn);
       <hr>
 
       <footer>
-        <p>&copy; Company 2014</p>
+        <p>&copy; Oficina en la nube 2014</p>
       </footer>
     </div> <!-- /container -->
 
@@ -129,6 +133,6 @@ mysql_close($conn);
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    
   </body>
 </html>
