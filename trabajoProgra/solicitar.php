@@ -9,6 +9,8 @@ if(! $conn )
 }
 
 $experto= $_GET["id"];
+$nombre= $_GET["nombre"];
+
 
 $sql = "SELECT MIN( fecha ) a, MAX( fecha ) b FROM horarios WHERE idexperto ='$experto' AND estado =1";
 mysql_select_db('paul');
@@ -127,7 +129,12 @@ mysql_close($conn);
     <div class="container">
       <!-- Example row of columns -->
      <div class="row">
+    
+      
+
+
      <div id="contenedor">
+    <center><h3><?php echo $nombre?></h3></center>
 		<div id="datepicker"></div>
 		<div id="box_intervalos">
 
@@ -145,7 +152,7 @@ mysql_close($conn);
       <hr>
 
       <footer>
-        <p>&copy; Oficina en la nube 2014</p>
+        <center><p>&copy; Oficina en la nube 2014</p></center>
       </footer>
     </div> <!-- /container -->
 
@@ -194,11 +201,10 @@ mysql_close($conn);
 
 
                 		}else{
-                		$('#formulario').html("<h2>Formulario</h2>");
+                		$('#formulario').html("<h2>Formulario</h2>Horas de disponibilidad<br/><br/>");
                 			
                 		for(var i in lista){
-                		$('#formulario').append("<input type='checkbox' name='"
-								+lista[i]+ "'>"+lista[i]+"</br>");
+                		$('#formulario').append("<input type='radio' name='a'>"+lista[i]+"</br>");
                 		console.log(lista[i]);
                 		}
 						$('#formulario').append("</br><input type='submit' value='Enviar'>");

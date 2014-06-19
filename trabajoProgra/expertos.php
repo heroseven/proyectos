@@ -11,7 +11,7 @@ if(! $conn )
 }
 
 
-
+//seleccionar el id y nombre de todos los expertos
 $sql = "SELECT idexperto, nombre from experto";
 mysql_select_db('paul');
 $retval = mysql_query( $sql, $conn );
@@ -31,6 +31,8 @@ mysql_close($conn);
 
 
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -109,7 +111,7 @@ mysql_close($conn);
 <div class="col-md-4">
           <h2><?php echo $nombres[$i] ?></h2>
           <p><?php echo $nombres[$i] ?></p>
-          <p><a class="btn btn-default" href="solicitar.php?id=<?php echo $ids[$i] ?>" role="button">Solicitar</a></p>
+          <p><a class="btn btn-default" href="solicitar.php?id=<?php echo $ids[$i] ?>&nombre=<?php echo $nombres[$i]?>" role="button">Solicitar</a></p>
         </div>
 
 
@@ -123,7 +125,8 @@ mysql_close($conn);
       <hr>
 
       <footer>
-        <p>&copy; Oficina en la nube 2014</p>
+        <center><p>&copy; Oficina en la nube 2014</p></center>
+      </footer>
       </footer>
     </div> <!-- /container -->
 
